@@ -13,8 +13,14 @@ const Menu = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Nav.Link href="#features">Ingresar</Nav.Link>
+            <Nav.Link href="#pricing">Contacto</Nav.Link>
+
+            {/* Esto se va a ver cuando este logueado */}
+            <Nav.Link as={Link} to={'./compras'}>Compras</Nav.Link>
+            <Nav.Link href="#pricing">Ventas</Nav.Link>
+            <Nav.Link href="#pricing">Stock</Nav.Link>
+            <Nav.Link href="#pricing">Ranking</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
