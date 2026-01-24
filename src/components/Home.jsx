@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router';
-import { AiFillAndroid } from "react-icons/ai";
+import { AiFillDatabase, AiFillApi, AiFillFileText } from "react-icons/ai";
 
 const Home = () => {
   return (
@@ -14,7 +14,7 @@ const Home = () => {
         <Card.Text>
           With supporting text below as a natural lead-in to additional content.
         </Card.Text>
-        <Button as={Link} to={'./dashboardApi'} variant="primary">API</Button>
+        <Button as={Link} to={'./dashboardApi'} variant="outline-danger"> <span><AiFillApi /></span> API</Button>
       </Card.Body>
     </Card>
 
@@ -25,7 +25,7 @@ const Home = () => {
         <Card.Text>
           With supporting text below as a natural lead-in to additional content.
         </Card.Text>
-        <Button as={Link} to={'./dashboardSql'} variant="primary">SQL</Button>
+        <Button as={Link} to={'./dashboardSql'} variant="outline-primary"> <span><AiFillDatabase /></span> SQL</Button>
       </Card.Body>
     </Card>
 
@@ -36,7 +36,7 @@ const Home = () => {
         <Card.Text>
           With supporting text below as a natural lead-in to additional content.
         </Card.Text>
-        <Button as={Link} to={'./dashboardArchivo'} variant="primary"> <AiFillAndroid /> Archivo</Button>
+        <Button as={Link} to={'./dashboardArchivo'} variant="outline-success"> <span><AiFillFileText /></span> Archivo</Button>
       </Card.Body>
     </Card>
     </div>
