@@ -3,7 +3,11 @@ import Navbar from 'react-bootstrap/Navbar';
 
 const Footer = () => {
   return (
-    <div>
+    <div style={{
+      position:"fixed",
+      bottom:0,
+      width:"100%"
+    }}>
        <Navbar className="bg-body-tertiary">
       <Container>
         <Navbar.Brand href="#home">Desarrollado por Miguel Angel</Navbar.Brand>
