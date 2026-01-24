@@ -17,16 +17,14 @@ const DashboardSql = () => {
         const nuevaConsulta = {
             id:uuidv4(),
             host: data.host,
-            user: import.meta.env.VITE_DB_SQL_USER,
-            password: import.meta.env.VITE_DB_SQL_PASS,
             dataBase: data.dataBase
         }
         setConsultasBase([...consultasBase, nuevaConsulta])
         reset()
         Swal.fire({
             title:"Consulta Generada",
-            text:"Veamos si pasaste la validación",
-            icon:"question"
+            text:"Aguarda un momento y veras los cambios",
+            icon:"success"
         })
     }
 
@@ -42,14 +40,14 @@ const DashboardSql = () => {
         <Form.Control type="text" placeholder="Ej: sistec00.dnsalias.com" {...register("host", {
             required:"Este campo es obligatorio",
         })} />
-        <Form.Text> {errors.host?.message} </Form.Text>
+        <Form.Text className='text-danger'> {errors.host?.message} </Form.Text>
       </Form.Group>
       <Form.Group className="mb-3" >
         <Form.Label>Base de Datos</Form.Label>
         <Form.Control type="text" placeholder="Ej: data_base" {...register("dataBase", {
             required:"Ingresa el nombre Técnico de la base"
         })} />
-        <Form.Text> {errors.dataBase?.message} </Form.Text>
+        <Form.Text className='text-danger'> {errors.dataBase?.message} </Form.Text>
       </Form.Group>
       <Button type='submit'>Conectar</Button>
     </Form>
