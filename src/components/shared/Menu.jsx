@@ -9,7 +9,7 @@ const Menu = () => {
     <div>
         <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand as={Link} to={'/'}>Gestión 360</Navbar.Brand>
+        <Navbar.Brand as={Link} to={'/'}>Dash 360</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
