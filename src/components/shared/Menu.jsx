@@ -18,9 +18,10 @@ const Menu = () => {
 
             {/* Esto se va a ver cuando este logueado */}
             <Nav.Link as={Link} to={'./compras'}>Compras</Nav.Link>
-            <Nav.Link href="#pricing">Ventas</Nav.Link>
-            <Nav.Link href="#pricing">Stock</Nav.Link>
-            <Nav.Link href="#pricing">Ranking</Nav.Link>
+            <Nav.Link as={Link} to={'./ventas'}>Ventas</Nav.Link>
+            <Nav.Link as={Link} to={'/stock'}>Stock</Nav.Link>
+            <Nav.Link as={Link} to={'/ranking'} >Ranking</Nav.Link>
+            <Nav.Link as={Link} to={'/pruebas'} >Pruebas</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
