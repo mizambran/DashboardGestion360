@@ -8,6 +8,10 @@ import DashboardApi from './components/DashboardApi'
 import DasboardArchivo from './components/DasboardArchivo'
 import Menu from './components/shared/Menu'
 import Compras from './components/Compras'
+import Ventas from './components/Ventas'
+import Stock from './components/Stock'
+import Ranking from './components/Ranking'
+import Prueba from './components/Prueba'
 function App() {
 
   return (
@@ -17,9 +21,13 @@ function App() {
     <Routes>
       <Route path='/' element={<Home></Home>} ></Route>
       <Route path='/compras' element={<Compras></Compras>} ></Route>
+      <Route path='/ventas' element={<Ventas></Ventas>} ></Route>
+      <Route path='/stock' element={<Stock></Stock>} ></Route>
+      <Route path='/ranking' element={<Ranking></Ranking>} ></Route>
       <Route path='/dashboardSql' element={<DashboardSql></DashboardSql>} />
       <Route path='/dashboardApi' element={<DashboardApi></DashboardApi>} />
       <Route path='/dashboardArchivo' element={<DasboardArchivo></DasboardArchivo>} />
+      <Route path='/prueba' element={<Prueba></Prueba>} />
     </Routes>
     <Footer></Footer>
     </BrowserRouter>
