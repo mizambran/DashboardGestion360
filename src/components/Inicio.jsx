@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router';
 import { AiFillDatabase, AiFillApi, AiFillFileText } from "react-icons/ai";
 
-const Home = () => {
+const Inicio = () => {
   return (
     <>
     <div className='container d-flex justify-content-between'>
@@ -44,4 +44,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Inicio
