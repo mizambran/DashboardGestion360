@@ -1,26 +1,29 @@
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 
 const Footer = () => {
   return (
-    <div style={{
-      position:"fixed",
-      bottom:0,
-      width:"100%"
-    }}>
-       <Navbar className="bg-body-tertiary">
+    <footer className="bg-light py-4 mt-auto border-top">
       <Container>
-        <Navbar.Brand href="#home">Desarrollado por Miguel Angel</Navbar.Brand>
-        <Navbar.Toggle />
-        <Navbar.Collapse className="justify-content-end">
-          <Navbar.Text>
-            Sigueme en: <a href="https://www.instagram.com/miguel.zambran0?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target='_blank'>Instagram</a>
-          </Navbar.Text>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-    </div>
-  )
-}
+        <Row className="align-items-center">
+          <Col md={4} className="text-center text-md-start mb-3 mb-md-0">
+            <h5 className="mb-0 fw-bold text-dark">Dash360</h5>
+            <small className="text-muted">© 2026. Data Intelligence.</small>
+          </Col>
+          
+          <Col md={4} className="text-center mb-3 mb-md-0">
+            <a href="#inicio" className="text-decoration-none text-secondary mx-2">Inicio</a>
+            <a href="#contacto" className="text-decoration-none text-secondary mx-2">Contacto</a>
+          </Col>
 
-export default Footer
+          <Col md={4} className="text-center text-md-end">
+            <span className="text-muted mx-2" style={{cursor: 'pointer'}}>Instagram</span>
+            <span className="text-muted mx-2" style={{cursor: 'pointer'}}>Facebook</span>
+          </Col>
+        </Row>
+      </Container>
+    </footer>
+  );
+};
+
+export default Footer;
