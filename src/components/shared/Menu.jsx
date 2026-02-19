@@ -1,34 +1,26 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import { Link } from 'react-router';
+import React from 'react';
+import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 
 const Menu = () => {
   return (
-    <>
-    <div>
-        <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
+    <Navbar bg="dark" variant="dark" expand="lg" className="shadow-sm fixed-top">
       <Container>
-        <Navbar.Brand as={Link} to={'/'}>Dash 360</Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#features">Ingresar</Nav.Link>
-            <Nav.Link href="#pricing">Contacto</Nav.Link>
-
-            {/* Esto se va a ver cuando este logueado */}
-            <Nav.Link as={Link} to={'./compras'}>Compras</Nav.Link>
-            <Nav.Link as={Link} to={'./ventas'}>Ventas</Nav.Link>
-            <Nav.Link as={Link} to={'/stock'}>Stock</Nav.Link>
-            <Nav.Link as={Link} to={'/ranking'} >Ranking</Nav.Link>
-            <Nav.Link as={Link} to={'/pruebas'} >Pruebas</Nav.Link>
+        <Navbar.Brand href="#home" className="fw-bold">
+          Dash360
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto align-items-center">
+            <Nav.Link href="#inicio" className="mx-2">Inicio</Nav.Link>
+            <Nav.Link href="#contacto" className="mx-2">Contacto</Nav.Link>
+            <Button variant="outline-light" href="#ingresar" size="sm" className="ms-2 px-4">
+              Ingresar
+            </Button>
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
-    </div>
-    </>
-  )
-}
+  );
+};
 
-export default Menu
+export default Menu;
