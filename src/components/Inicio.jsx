@@ -1,87 +1,108 @@
-
-import { Container, Row, Col, Button, Card, Badge } from 'react-bootstrap';
-import Menu from '../components/shared/Menu'; // Asegurate de importar tu Menu
-import Footer from '../components/shared/Footer'; // Asegurate de importar tu Footer
+import React, { useContext } from 'react'; // 1. Importar useContext
+import { Container, Row, Col, Card, Button, Badge } from 'react-bootstrap';
+import { FaCloudUploadAlt, FaPlug, FaChartArea } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { ThemeContext } from '../Context/Theme/ThemeContext'; // 2. Importar tu Contexto
 
 const Inicio = () => {
+  // 3. Extraer el tema del contexto
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <div className="d-flex flex-column min-vh-100">
-      {/* HERO SECTION: Estilo Financiero/Tech */}
-      <div className="bg-dark text-white py-5 mt-5">
-        <Container className="py-5">
+    <div className="d-flex flex-column min-vh-100" style={{ backgroundColor: theme.background }}>
+
+      <div 
+        className="text-white pt-5 pb-5 mt-5 shadow-sm"
+        // Usamos template literals para inyectar los colores del tema en el gradiente
+        style={{ background: `linear-gradient(135deg, ${theme.background} 0%, ${theme.cardBackground} 50%, #064e3b 100%)` }}
+      >
+        <Container className="py-5 mt-4">
           <Row className="align-items-center">
-            <Col lg={6}>
-              <Badge bg="info" className="mb-3 text-dark">Nuevo: API v2.0</Badge>
-              <h1 className="display-4 fw-bold">Inteligencia Financiera Centralizada</h1>
-              <p className="lead text-light opacity-75">
-                Conecta tus flujos de datos o sube tus reportes estáticos. 
-                Dash360 transforma la información cruda en decisiones estratégicas.
+            <Col lg={7} className="mb-5 mb-lg-0">
+              <p className="mb-3 px-3 py-2 rounded-pill fw-bold border w-50 text-center" 
+                     style={{ backgroundColor: theme.headerBackground, color: theme.accentGreen }}>
+                Plataforma de Data Analytics
               </p>
-              <div className="d-grid gap-2 d-md-flex justify-content-md-start mt-4">
-                <Button variant="primary" size="lg" className="px-5">Comenzar</Button>
-                <Button variant="outline-light" size="lg" className="px-5">Demo</Button>
+              <h1 className="display-4 fw-extrabold mb-4" style={{ fontWeight: '900', color: theme.primaryText }}>
+                Dale vida a tus <span style={{ color: theme.accentGreen }}>datos</span>.
+              </h1>
+              <p className="lead mb-4 pe-lg-5" style={{ color: theme.secondaryText }}>
+                Dash360 transforma grandes volúmenes de información en visualizaciones claras y accionables. Conecta tus fuentes en segundos y toma decisiones basadas en evidencia.
+              </p>
+              <div className="d-flex gap-3">
+                <Button as={Link} to="/login" size="lg" className="px-4 fw-bold rounded-pill text-dark border-0 shadow" 
+                        style={{ backgroundColor: theme.accentGreen }}>
+                  Empezar ahora
+                </Button>
+                <Button variant="outline-light" size="lg" className="px-4 rounded-pill fw-medium"
+                        style={{ borderColor: theme.secondaryText }}>
+                  Ver demostración
+                </Button>
               </div>
             </Col>
-            <Col lg={6} className="d-none d-lg-block">
-               {/* Placeholder visual para un gráfico/dashboard */}
-              <div className="bg-secondary bg-opacity-25 p-5 rounded-3 border border-secondary text-center" style={{minHeight: '300px'}}>
-                  <span className="text-muted display-6">Dashboard Preview Area</span>
+            
+            <Col lg={5} className="d-none d-lg-flex justify-content-center">
+              <div className="p-5 rounded-4 shadow-lg border d-flex flex-column align-items-center w-100" 
+                   style={{ maxWidth: '420px', backgroundColor: theme.cardBackground, borderColor: theme.border }}>
+                  <FaChartArea color={theme.accentBlue} size={110} className="mb-4 opacity-75" />
+                  <h4 className="fw-bold mb-4" style={{ color: theme.primaryText }}>Procesamiento en Tiempo Real</h4>
+                  <div className="progress w-100 shadow-sm" style={{ height: '8px', backgroundColor: theme.background }}>
+                    <div className="progress-bar" role="progressbar" style={{ width: '75%', backgroundColor: theme.accentBlue }}></div>
+                  </div>
               </div>
             </Col>
           </Row>
         </Container>
       </div>
 
-      {/* FEATURES SECTION: API vs Archivos */}
-      <Container className="my-5">
+      <Container className="my-5 py-5 flex-grow-1">
         <div className="text-center mb-5">
-          <h2 className="fw-bold">¿Cómo quieres procesar tus datos?</h2>
-          <p className="text-muted">Flexibilidad total para tu flujo de trabajo.</p>
+          <h2 className="fw-bold" style={{ color: theme.primaryText }}>Elegí tu método de conexión</h2>
+          <p className="fs-5" style={{ color: theme.secondaryText }}>Flexibilidad absoluta para tus fuentes de información.</p>
         </div>
 
-        <Row>
-          {/* Opción 1: API */}
-          <Col md={6} className="mb-4">
-            <Card className="h-100 shadow border-0">
+        <Row className="g-4 justify-content-center">
+          <Col md={5}>
+            <Card className="h-100 shadow-sm border-0 rounded-4 transition-all" style={{ backgroundColor: theme.cardBackground }}>
               <Card.Body className="p-5 text-center">
-                <div className="display-4 text-primary mb-3">
-                  <i className="bi bi-hdd-network"></i> {/* Si usas bootstrap-icons */}
+                <div className="mb-4">
+                  <div className="d-inline-flex p-4 rounded-circle" style={{ backgroundColor: 'rgba(6, 182, 212, 0.1)' }}>
+                    <FaPlug size={40} color={theme.accentBlue} />
+                  </div>
                 </div>
-                <Card.Title as="h3">Conexión API</Card.Title>
-                <Card.Text className="text-muted">
-                  Sincronización en tiempo real. Conecta tus endpoints JSON y deja que Dash360 actualice tus gráficos automáticamente.
+                <Card.Title as="h3" className="fw-bold mb-3" style={{ color: theme.primaryText }}>Conexión API</Card.Title>
+                <Card.Text className="mb-4" style={{ color: theme.secondaryText }}>
+                  Sincronización bidireccional en tiempo real. Configura tus Endpoints y deja que nosotros procesemos la data.
                 </Card.Text>
-                <Button variant="outline-primary" className="mt-3">Configurar API</Button>
+                <Button className="rounded-pill px-4 fw-semibold" 
+                        style={{ backgroundColor: 'transparent', color: theme.accentBlue, border: `1px solid ${theme.accentBlue}` }}>
+                  Integrar API
+                </Button>
               </Card.Body>
             </Card>
           </Col>
 
-          {/* Opción 2: Archivos */}
-          <Col md={6} className="mb-4">
-            <Card className="h-100 shadow border-0">
+          <Col md={5}>
+            <Card className="h-100 shadow-sm border-0 rounded-4 transition-all" style={{ backgroundColor: theme.cardBackground }}>
               <Card.Body className="p-5 text-center">
-                <div className="display-4 text-success mb-3">
-                  <i className="bi bi-file-earmark-spreadsheet"></i>
+                <div className="mb-4">
+                  <div className="d-inline-flex p-4 rounded-circle" style={{ backgroundColor: 'rgba(16, 185, 129, 0.1)' }}>
+                    <FaCloudUploadAlt size={40} color={theme.accentGreen} />
+                  </div>
                 </div>
-                <Card.Title as="h3">Subida de Archivos</Card.Title>
-                <Card.Text className="text-muted">
-                  ¿Datos offline? Sube tus archivos .CSV, .XLSX o .JSON. Procesamiento inmediato y seguro en nuestros servidores.
+                <Card.Title as="h3" className="fw-bold mb-3" style={{ color: theme.primaryText }}>Subida de Archivos</Card.Title>
+                <Card.Text className="mb-4" style={{ color: theme.secondaryText }}>
+                  Arrastra tus datasets (.CSV, Excel, JSON). El sistema los limpia, formatea y visualiza automáticamente.
                 </Card.Text>
-                <Button variant="outline-success" className="mt-3">Subir Archivo</Button>
+                <Button className="rounded-pill px-4 fw-semibold" 
+                        style={{ backgroundColor: 'transparent', color: theme.accentGreen, border: `1px solid ${theme.accentGreen}` }}>
+                  Subir Data
+                </Button>
               </Card.Body>
             </Card>
           </Col>
         </Row>
       </Container>
-
-      {/* CALL TO ACTION */}
-      <Container fluid className="bg-light py-5 text-center mt-auto">
-        <Container>
-            <h3 className="mb-3">Optimiza tus reportes hoy</h3>
-            <Button variant="dark" size="lg">Crear Cuenta Gratuita</Button>
-        </Container>
-      </Container>
-
     </div>
   );
 };
