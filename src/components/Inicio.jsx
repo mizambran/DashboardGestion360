@@ -3,6 +3,8 @@ import { Container, Row, Col, Card, Button, Badge } from 'react-bootstrap';
 import { FaCloudUploadAlt, FaPlug, FaChartArea } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { ThemeContext } from '../Context/Theme/ThemeContext'; // 2. Importar tu Contexto
+import { FaBrain, FaChartLine, FaChartBar, FaCheckCircle } from 'react-icons/fa';
+
 
 const Inicio = () => {
   // 3. Extraer el tema del contexto
@@ -97,6 +99,140 @@ const Inicio = () => {
                 <Button className="rounded-pill px-4 fw-semibold" 
                         style={{ backgroundColor: 'transparent', color: theme.accentGreen, border: `1px solid ${theme.accentGreen}` }}>
                   Subir Data
+                </Button>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+      {/* SECCIÓN: IMPORTANCIA DE LOS DATOS */}
+      <Container className="my-5 py-5 border-top" style={{ borderColor: theme.border }}>
+        <Row className="justify-content-center text-center">
+          <Col lg={8}>
+            <FaBrain size={50} style={{ color: theme.accentBlue }} className="mb-4" />
+            <h2 className="fw-bold mb-4" style={{ color: theme.primaryText }}>
+              Decisiones basadas en <span style={{ color: theme.accentGreen }}>certezas</span>, no en intuición.
+            </h2>
+            <p className="fs-5" style={{ color: theme.secondaryText, lineHeight: '1.8' }}>
+              En un entorno competitivo, trabajar con información clara, oportuna y bien estructurada marca la diferencia entre el estancamiento y el crecimiento. Dash360 convierte el ruido de tus bases de datos en un mapa claro para el futuro de tu negocio.
+            </p>
+          </Col>
+        </Row>
+      </Container>
+      {/* SECCIÓN: PREVIEW DE GRÁFICOS (HOVER EFECTO) */}
+      <Container className="my-5 py-5">
+        <div className="text-center mb-5">
+          <h2 className="fw-bold" style={{ color: theme.primaryText }}>Visualizaciones Dinámicas</h2>
+          <p className="fs-5" style={{ color: theme.secondaryText }}>Interactúa con tus métricas en tiempo real.</p>
+        </div>
+        <Row className="g-4">
+          {/* Gráfico 1 */}
+          <Col md={6}>
+            <Card 
+              className="h-100 border-0 rounded-4 shadow-lg overflow-hidden" 
+              style={{ backgroundColor: theme.cardBackground, transition: 'transform 0.3s ease', cursor: 'pointer' }}
+              onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
+              onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+            >
+              <Card.Body className="p-5 d-flex flex-column align-items-center justify-content-center text-center">
+                <FaChartLine size={80} style={{ color: theme.accentGreen, marginBottom: '20px' }} />
+                <h4 className="fw-bold" style={{ color: theme.primaryText }}>Evolución de Ingresos</h4>
+                <p style={{ color: theme.secondaryText }}>Proyecciones y tendencias históricas con un clic.</p>
+                {/* Simulación visual de barras de gráfico */}
+                <div className="w-100 mt-4 d-flex align-items-end justify-content-between" style={{ height: '60px' }}>
+                  <div style={{ width: '15%', height: '40%', backgroundColor: theme.accentBlue, borderRadius: '4px' }}></div>
+                  <div style={{ width: '15%', height: '60%', backgroundColor: theme.accentGreen, borderRadius: '4px' }}></div>
+                  <div style={{ width: '15%', height: '30%', backgroundColor: theme.accentBlue, borderRadius: '4px' }}></div>
+                  <div style={{ width: '15%', height: '80%', backgroundColor: theme.accentGreen, borderRadius: '4px' }}></div>
+                  <div style={{ width: '15%', height: '100%', backgroundColor: theme.accentBlue, borderRadius: '4px' }}></div>
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
+
+          {/* Gráfico 2 */}
+          <Col md={6}>
+            <Card 
+              className="h-100 border-0 rounded-4 shadow-lg overflow-hidden" 
+              style={{ backgroundColor: theme.cardBackground, transition: 'transform 0.3s ease', cursor: 'pointer' }}
+              onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
+              onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+            >
+              <Card.Body className="p-5 d-flex flex-column align-items-center justify-content-center text-center">
+                <FaChartBar size={80} style={{ color: theme.accentBlue, marginBottom: '20px' }} />
+                <h4 className="fw-bold" style={{ color: theme.primaryText }}>Distribución de Costos</h4>
+                <p style={{ color: theme.secondaryText }}>Desglose detallado por departamento y categoría.</p>
+                {/* Simulación visual de gráfico circular (donut) */}
+                <div className="w-100 mt-4 d-flex align-items-center justify-content-center">
+                   <div style={{ width: '60px', height: '60px', borderRadius: '50%', border: `10px solid ${theme.accentBlue}`, borderTopColor: theme.accentGreen }}></div>
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+      {/* SECCIÓN: PLANES Y PRECIOS */}
+      <Container className="my-5 py-5 border-top" style={{ borderColor: theme.border }}>
+        <div className="text-center mb-5">
+          <h2 className="fw-bold" style={{ color: theme.primaryText }}>Escala según tus necesidades</h2>
+          <p className="fs-5" style={{ color: theme.secondaryText }}>Planes diseñados para equipos de cualquier tamaño.</p>
+        </div>
+
+        <Row className="g-4 justify-content-center align-items-center">
+          {/* Plan Gratis */}
+          <Col lg={4} md={6}>
+            <Card className="border-0 rounded-4 shadow-sm" style={{ backgroundColor: theme.cardBackground }}>
+              <Card.Body className="p-5 d-flex flex-column">
+                <h4 className="fw-bold mb-3" style={{ color: theme.primaryText }}>Gratis</h4>
+                <h2 className="display-4 fw-bold mb-4" style={{ color: theme.accentBlue }}>$0</h2>
+                <ul className="list-unstyled mb-4 flex-grow-1" style={{ color: theme.secondaryText }}>
+                  <li className="mb-3"><FaCheckCircle className="me-2" style={{ color: theme.accentBlue }} /> 1 Dashboard</li>
+                  <li className="mb-3"><FaCheckCircle className="me-2" style={{ color: theme.accentBlue }} /> Archivos planos (.csv)</li>
+                  <li className="mb-3"><FaCheckCircle className="me-2" style={{ color: theme.accentBlue }} /> Soporte en comunidad</li>
+                </ul>
+                <Button variant="outline-light" className="w-100 rounded-pill fw-bold" style={{ color: theme.primaryText, borderColor: theme.border }}>
+                  Comenzar Gratis
+                </Button>
+              </Card.Body>
+            </Card>
+          </Col>
+
+          {/* Plan Autogestión (Destacado) */}
+          <Col lg={4} md={6}>
+            <Card className="border-0 rounded-4 shadow-lg position-relative" style={{ backgroundColor: theme.cardBackground, border: `2px solid ${theme.accentGreen} !important`, transform: 'scale(1.05)', zIndex: 1 }}>
+              <div className="position-absolute top-0 start-50 translate-middle badge rounded-pill" style={{ backgroundColor: theme.accentGreen, color: '#000', padding: '8px 16px', fontSize: '0.9rem' }}>
+                Más popular
+              </div>
+              <Card.Body className="p-5 d-flex flex-column mt-3">
+                <h4 className="fw-bold mb-3" style={{ color: theme.primaryText }}>Autogestión</h4>
+                <h2 className="display-4 fw-bold mb-4" style={{ color: theme.accentGreen }}>$29<span className="fs-5 text-muted">/mes</span></h2>
+                <ul className="list-unstyled mb-4 flex-grow-1" style={{ color: theme.secondaryText }}>
+                  <li className="mb-3"><FaCheckCircle className="me-2" style={{ color: theme.accentGreen }} /> Dashboards ilimitados</li>
+                  <li className="mb-3"><FaCheckCircle className="me-2" style={{ color: theme.accentGreen }} /> Conexión API RESTful</li>
+                  <li className="mb-3"><FaCheckCircle className="me-2" style={{ color: theme.accentGreen }} /> Exportación a PDF</li>
+                  <li className="mb-3"><FaCheckCircle className="me-2" style={{ color: theme.accentGreen }} /> Soporte por email</li>
+                </ul>
+                <Button className="w-100 rounded-pill fw-bold border-0" style={{ backgroundColor: theme.accentGreen, color: '#000' }}>
+                  Prueba de 14 días
+                </Button>
+              </Card.Body>
+            </Card>
+          </Col>
+
+          {/* Plan Asistido */}
+          <Col lg={4} md={6}>
+            <Card className="border-0 rounded-4 shadow-sm" style={{ backgroundColor: theme.cardBackground }}>
+              <Card.Body className="p-5 d-flex flex-column">
+                <h4 className="fw-bold mb-3" style={{ color: theme.primaryText }}>Asistido</h4>
+                <h2 className="display-4 fw-bold mb-4" style={{ color: theme.accentBlue }}>$99<span className="fs-5 text-muted">/mes</span></h2>
+                <ul className="list-unstyled mb-4 flex-grow-1" style={{ color: theme.secondaryText }}>
+                  <li className="mb-3"><FaCheckCircle className="me-2" style={{ color: theme.accentBlue }} /> Todo en Autogestión</li>
+                  <li className="mb-3"><FaCheckCircle className="me-2" style={{ color: theme.accentBlue }} /> Analista dedicado</li>
+                  <li className="mb-3"><FaCheckCircle className="me-2" style={{ color: theme.accentBlue }} /> Integraciones a medida</li>
+                  <li className="mb-3"><FaCheckCircle className="me-2" style={{ color: theme.accentBlue }} /> Soporte 24/7 (SLA)</li>
+                </ul>
+                <Button variant="outline-light" className="w-100 rounded-pill fw-bold" style={{ color: theme.primaryText, borderColor: theme.border }}>
+                  Contactar Ventas
                 </Button>
               </Card.Body>
             </Card>
