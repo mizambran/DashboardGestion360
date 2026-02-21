@@ -10,6 +10,8 @@ import Ranking from './components/Ranking'
 import Inicio from './components/Inicio'
 import Login from './components/Login/Login'
 import { ThemeProvider } from 'react-bootstrap'
+import Contacto from './components/Contacto'
+import Registro from './components/Login/Registro'
 function App() {
 
   return (
@@ -23,6 +25,8 @@ function App() {
       <Route path='/stock' element={<Stock></Stock>} ></Route>
       <Route path='/ranking' element={<Ranking></Ranking>} ></Route>
       <Route path='/login' element={<Login></Login>} ></Route>
+      <Route path='/contacto' element={<Contacto></Contacto>}></Route>
+      <Route path='/registro' element={<Registro></Registro>}></Route>
     </Routes>
     <Footer></Footer>
     </BrowserRouter>
